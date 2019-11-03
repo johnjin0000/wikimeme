@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  br
+  h3 #{header} #{filter}
+  ul.list-group
+    each meme, i in memes
+      li.list-group-item
+        a(href="/memes/"+meme._id)= meme.name

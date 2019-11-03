@@ -1,0 +1,146 @@
+doctype html
+html
+  head
+    title WikiMeme 
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    link(rel='stylesheet' href = '/css/style.css')  
+  body 
+    nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+      a.navbar-brand(href='/')
+        img(src='/website_images/icon.png', alt='', style='padding-right:2px')
+        | Find Your Meme
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarCollapse.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/')
+              | Home 
+              span.sr-only (current)
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown') Explore
+            ul.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+              li.dropdown-submenu
+                a.dropdown-item.dropdown-toggle(href='#') A-Z
+                ul.dropdown-menu.scrollable-menu
+                  li
+                    a.dropdown-item(href='/memes/alphabet/a') A
+                  li
+                    a.dropdown-item(href='memes/alphabet/b') B
+                  li
+                    a.dropdown-item(href='memes/alphabet/c') C
+                  li
+                    a.dropdown-item(href='memes/alphabet/d') D
+                  li
+                    a.dropdown-item(href='memes/alphabet/e') E
+                  li
+                    a.dropdown-item(href='memes/alphabet/f') F
+                  li
+                    a.dropdown-item(href='memes/alphabet/g') G
+                  li
+                    a.dropdown-item(href='memes/alphabet/h') H
+                  li
+                    a.dropdown-item(href='memes/alphabet/i') I
+                  li
+                    a.dropdown-item(href='memes/alphabet/j') J
+                  li
+                    a.dropdown-item(href='memes/alphabet/k') K
+                  li
+                    a.dropdown-item(href='memes/alphabet/l') L
+                  li
+                    a.dropdown-item(href='memes/alphabet/m') M
+                  li
+                    a.dropdown-item(href='memes/alphabet/n') N
+                  li
+                    a.dropdown-item(href='memes/alphabet/o') O
+                  li
+                    a.dropdown-item(href='memes/alphabet/p') P
+                  li
+                    a.dropdown-item(href='memes/alphabet/q') Q
+                  li
+                    a.dropdown-item(href='memes/alphabet/r') R
+                  li
+                    a.dropdown-item(href='memes/alphabet/s') S
+                  li
+                    a.dropdown-item(href='memes/alphabet/t') T
+                  li
+                    a.dropdown-item(href='memes/alphabet/u') U
+                  li
+                    a.dropdown-item(href='memes/alphabet/v') V
+                  li
+                    a.dropdown-item(href='memes/alphabet/w') W
+                  li
+                    a.dropdown-item(href='memes/alphabet/x') X
+                  li
+                    a.dropdown-item(href='memes/alphabet/y') Y
+                  li
+                    a.dropdown-item(href='memes/alphabet/z') Z
+              li.dropdown-submenu
+                a.dropdown-item.dropdown-toggle(href='#') Years
+                ul.dropdown-menu.scrollable-menu
+                  li
+                    a.dropdown-item(href='/memes/year/2019') 2019
+                  li
+                    a.dropdown-item(href='/memes/year/2018') 2018
+                  li
+                    a.dropdown-item(href='/memes/year/2017') 2017
+                  li
+                    a.dropdown-item(href='/memes/year/2016') 2016
+                  li
+                    a.dropdown-item(href='/memes/year/2015') 2015
+                  li
+                    a.dropdown-item(href='/memes/year/2014') 2014
+                  li
+                    a.dropdown-item(href='/memes/year/2013') 2013
+                  li
+                    a.dropdown-item(href='/memes/year/2012') 2012
+                  li
+                    a.dropdown-item(href='/memes/year/2011') 2011
+                  li
+                    a.dropdown-item(href='/memes/year/2010') 2010
+                  li
+                    a.dropdown-item(href='/memes/year/2009') 2009
+                  li
+                    a.dropdown-item(href='/memes/year/2008') 2008
+                  li
+                    a.dropdown-item(href='/memes/year/2007') 2007
+                  li
+                    a.dropdown-item(href='/memes/year/2006') 2006
+                  li
+                    a.dropdown-item(href='/memes/year/2005') 2005
+                  li
+                    a.dropdown-item(href='/memes/year/2004') 2004
+                  li
+                    a.dropdown-item(href='/memes/year/2003') 2003
+                  li
+                    a.dropdown-item(href='/memes/year/2002') 2002
+                  li
+                    a.dropdown-item(href='/memes/year/2001') 2001
+                  li
+                    a.dropdown-item(href='/memes/year/2000') 2000
+              li
+                a.dropdown-item(href='#') Recent
+          li.nav-item
+            a.nav-link(href='/about') About
+          li.nav.item
+            a.nav-link(href='/memes/add') Add a Meme
+        form.form-inline.mt-2.mt-md-0(method='POST', action='/memes/search')
+          input.form-control.mr-sm-2(type='text', placeholder='Search the database', aria-label='Search the database', name = 'search')
+          button.btn.btn-outline-light.my-2.my-sm-0(type='submit') Search
+      
+    .container
+      br
+      br
+      br
+      != messages('message',locals)
+      if errors
+        each error, i in errors
+          div(class="alert alert-danger") #{error.msg}
+      block content
+      .container(align='center')
+        span.text-muted
+          | Created by: Brandon Hinh, John Jin, John Powers, Lilly Tian | &copy; Copyright 2019 by WikiMeme Co.
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')

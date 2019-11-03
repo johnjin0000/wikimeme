@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1.display-4(align='center', style='padding-top:60px; padding-bottom:10px')=meme.name 
+  div(align='center', style='padding-bottom:10px')
+    img(src='/images/'+meme.img, alt='meme pic', width='650', height='450')
+    br
+    br
+    br
+    iframe(src=meme.youtube, width='560', height='315', frameborder='0', allowfullscreen='')
+  p(style='font-size:25px; padding-right:100px; padding-left:100px')= meme.description
+  br
+  hr
+  p(style='font-size:20px; padding-right:100px; padding-left:100px')
+      b Creation Date:
+  p(style='padding-right:100px; padding-left:100px')= meme.year
+
+  

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    style.
+      .feed {padding: 60px}
+    div(style = "padding:60px") 
+    h1 Add New Meme
+    br
+    form(method='POST', action='/memes/add' enctype='multipart/form-data')
+      .form-group
+        label Name:
+        input.form-control(name = 'name', type = 'text', size='50')
+      .form-group
+        label Description:
+        textarea#exampleFormControlTextarea1.form-control(name = 'description', rows='6')
+      .form-group
+        label Year Created:
+        input.form-control(name = 'year', type = 'number')
+      .form-group
+        label Youtube Link:
+        input.form-control(name = 'youtube', type = 'text', size='50')
+      .input-group.mb-3
+        .input-group-prepend
+          span#inputGroupFileAddon01.input-group-text Upload
+        .custom-file
+          input#inputGroupFile01.custom-file-input(type='file', aria-describedby='inputGroupFileAddon01', name = 'img')
+          label.custom-file-label(for='inputGroupFile01') Choose file
+
+      br
+      input.btn.btn-primary(type='submit', name='submit1')
